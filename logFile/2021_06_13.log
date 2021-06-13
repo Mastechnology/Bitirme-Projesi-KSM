@@ -1,0 +1,10 @@
+root - INFO - -13:27:09-Log dosyaları miktar düzenlemesi tamamlandı!
+root - ERROR - -13:27:09-FileNotFoundError(2, 'No such file or directory')
+root - ERROR - -13:27:09-Kayıtlı port ve baudrate değerleri alınamadı!
+werkzeug - INFO -  * Running on http://localhost:8000/ (Press CTRL+C to quit)
+werkzeug - INFO -  * Restarting with fsevents reloader
+root - INFO - -13:27:09-Log dosyaları miktar düzenlemesi tamamlandı!
+root - ERROR - -13:27:09-FileNotFoundError(2, 'No such file or directory')
+root - ERROR - -13:27:09-Kayıtlı port ve baudrate değerleri alınamadı!
+werkzeug - WARNING -  * Debugger is active!
+werkzeug - INFO -  * Debugger PIN: 190-673-482

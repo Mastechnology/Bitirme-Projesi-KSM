@@ -31,6 +31,22 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <!--suppress JSUnresolvedLibraryURL -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!--suppress JSUnresolvedLibraryURL -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/3106f05132.js" crossorigin="anonymous"></script>
   <style>
   body {
     font: 400 15px/1.8 Lato, sans-serif;
@@ -172,6 +188,22 @@
   textarea {
     resize: none;
   }
+    
+  .scroll { 
+    margin:4px, 4px; 
+    padding:4px; 
+    color: darkblue; 
+    font-size: large;
+    width: 100%; 
+    height: 247px; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    text-align:justify; 
+  } 
+  
+  html {
+    scroll-behavior: smooth;
+  }
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -303,26 +335,33 @@
 <div id="tour" class="bg-1">
   <div class="container">
     <h3 class="text-center">Gerçek Zamanlı Veri</h3>
-    <p class="text-center">Burada gelen verileri görebilirsiniz.<br> Hemen altta depolanan cisimlerin türlerine göre miktarı bulunmaktadır!</p>
+    <p class="text-center">Burada gelen verileri görebilirsiniz</p>
     <ul class="list-group">
-      <li class="list-group-item"></li>
-      <li class="list-group-item"><p style="color: #000; text-align: center;">Veriler burada yazacak! Terminal</p></li>
-      <li class="list-group-item"></li>
+      <li class="list-group-item">
+          <div>
+            <div class="panel">
+              <div class="panel-body">
+                <p id=terminal class="scroll" style="white-space: pre-line">
+              </p> 
+              </div>
+            </div>
+          </div>
+      </li>
     </ul>
-    
+    <p class="text-center">Hemen altta depolanan cisimlerin türlerine göre miktarı bulunmaktadır!</p>
     <div class="row text-center">
       <div class="col-sm-6">
         <div class="thumbnail">
           <br>
-          <p>Veriler burada yazacak! Metal son durum</p>
-          <br>
+          <h3 style="color: #000;">Metal Miktar</h3>
+          <h3 style="color: rgb(65, 4, 4);" id="metal">0</h3>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="thumbnail">
           <br>
-          <p>Veriler burada yazacak! Plastik son durum</p>
-          <br>
+          <h3 style="color: #000;">Plastik Miktar</h3>
+          <h3 style="color: rgb(65, 4, 4);" id="plastik">0</h3>
         </div>
       </div>
     </div>
@@ -330,18 +369,19 @@
       <div class="col-sm-6">
         <div class="thumbnail">
           <br>
-          <p>Veriler burada yazacak! Cam son durum</p>
-          <br>
+          <h3 style="color: #000;">Cam Miktar</h3>
+          <h3 style="color: rgb(65, 4, 4);" id="cam">0</h3>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="thumbnail">
           <br>
-          <p>Veriler burada yazacak! Karton son durum</p>
-          <br>
+          <h3 style="color: #000;">Karton Miktar</h3>
+          <h3 style="color: rgb(65, 4, 4);" id="karton">0</h3>
         </div>
       </div>
     </div>
+    <h3 class="text-center" id = "copKutusu"></h3>
   </div>
 </div>
 
@@ -354,25 +394,48 @@
     <li><a data-toggle="tab" href="#menu2">S.FURKAN</a></li>
   </ul>
 
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+  <div class="tab-content" style="font-size: large;">
+    <div id="home" class="tab-pane fade in active" >
       <h2>Mehmet Faruk GÜL</h2>
-      <p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
+      <p>Uludağ Üniversitesinde Bilgisayar Mühendisliği ve Anadolu Üniversitesi İşletme Yönetimi bölümü öğrencisiyim. Web programlama, mobil programlama, IOT ve AI alanında kendimi geliştirmekteyim. Tasarıma, kitaplara, tiyatroya, müziğe, teknolojiye... kısaca öğrenmeye meraklıyım.</p>
+      <p>Bilgisayar Mühendisliği Öğrencisi</p>
+      <p>Uludağ Üniversitesi</p>
+      <br>
+      <a href="https://drive.google.com/file/d/18nC8xInGpfNaQO-t5gBwP6TyM-ZygX-T/view?usp=sharing"><i class="fa fa-file fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/mfg"><i class="fa fa-linkedin fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://mfgstudio.blogspot.com/"><i class="fa fa-globe fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://github.com/Mastechnology"><i class="fa fa-github fa-3x"></i></a>
     </div>
     <div id="menu1" class="tab-pane fade">
-      <h2>Hüseyin Kaan GÜLMEZ</h2>
-      <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+      <h2>Hüseyin Kaan GÜLMEZ</h2
+      <p>Merhaba ben Hüseyin Kaan GÜLMEZ. Bursa Uludağ Üniversitesi Bilgisayar Mühendisliği öğrencisiyim. Mobil(Android) programlama ve veri bilimi ile ilgilenmekteyim.</p>
+      <p>Bilgisayar Mühendisliği Öğrencisi</p>
+      <p>Uludağ Üniversitesi</p>
+      <br>
+      <a href="https://drive.google.com/file/d/10IGpkOZvjahQblPcO_nJhyvg2mXxh6CB/view?usp=sharing"><i class="fa fa-file fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/h%C3%BCseyin-kaan-g%C3%BClmez-87a751202/"><i class="fa fa-linkedin fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://play.google.com/store/apps/developer?id=Bozok"><i class="fab fa-google-play fa-3x"></i></a>
+
     </div>
     <div id="menu2" class="tab-pane fade">
       <h2>Saruhan Furkan ŞENTÜRK</h2>
-      <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+      <p>Ben Saruhan, Bilgisayar Mühendisliği öğrencisiyim. Kodlamaya, web programlama, IoT, veri bilimine ve analizine, makine öğrenmesi konularına meraklıyım.</p>
+      <p>Bilgisayar Mühendisliği Öğrencisi</p>
+      <p>Uludağ Üniversitesi</p>
+      <br>
+      <a href="https://drive.google.com/file/d/1rWqfHNBNs1j6cx1uR5Kuz5-ccuphKOJk/view?usp=sharing"><i class="fa fa-file fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://www.linkedin.com/in/saruhan75/"><i class="fa fa-linkedin fa-3x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://github.com/SaruGit75"><i class="fa fa-github fa-3x"></i></a>
     </div>
   </div>
 </div>
-
-<!-- Image of location/map -->
-<img src="map.jpg" class="img-responsive" style="width:100%">
-
 <!-- Footer -->
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
@@ -382,6 +445,26 @@
 </footer>
 
 <script>
+$(document).ready(function () {
+    const source = new EventSource("/chart-data");
+    source.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        console.log(data.x);
+        document.getElementById("terminal").innerHTML = data.terminalText;
+        document.getElementById("plastik").innerHTML = data.plastikMiktar;
+        document.getElementById("cam").innerHTML = data.camMiktar;
+        document.getElementById("metal").innerHTML = data.metalMiktar;
+        document.getElementById("karton").innerHTML = data.kartonMiktar;
+        document.getElementById("copKutusu").innerHTML = "Çöp kutusu son durum: " + data.doluBos;
+        updateScroll()
+    }
+    });
+
+function updateScroll(){
+  var element = document.getElementById("terminal");
+  element.scrollTop = element.scrollHeight;
+}
+
 $(document).ready(function(){
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip(); 
